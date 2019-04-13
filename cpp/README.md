@@ -24,9 +24,11 @@ Or alternatively just edit the examples in main() yourself.
 
 Note: by default `make` will also build and run the haskell version, which assumes that you have GHC installed.
 
-## Haskell
+## Haskell + Python
 
 There is a direct translation of the c++ source to haskell in src/arith.hs, and this should produce the same exact output (with some form of printing enabled) as the c++ version (albeit with '()' instead of '<>').
+
+There is also a python version in src/arith.py, which again is a direct translation.
 
 ## Editing:
 
