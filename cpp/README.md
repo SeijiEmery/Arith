@@ -30,6 +30,8 @@ There is a direct translation of the c++ source to haskell in src/arith.hs, and 
 
 There is also a python version in src/arith.py, which again is a direct translation.
 
+These aren't meant as standalone implementations (as standalone implementations they're both somewhat suboptimal), but to demonstrate (and compare with) how the c++ code works.
+
 ## Editing:
 
 If you have [when-changed](https://github.com/joh/when-changed) installed, you can run `make interactive` (and hit enter), and it will re-run `make run_all` whenever arith.cpp or the Makefile changes.
