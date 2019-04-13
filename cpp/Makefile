@@ -25,25 +25,25 @@ build/arith_no_output: src/arith.cpp build
 	$(CXX) $(CXXFLAGS) -o $@ $< -DNO_OUTPUT
 
 build/arith_no_output.s: src/arith.cpp build
-	$(CXX) $(CXXFLAGS) $< -DNO_OUTPUT -E > $@
+	$(CXX) $(CXXFLAGS) -o $@ $< -S -DNO_OUTPUT
 
 build/arith_printf: src/arith.cpp build
 	$(CXX) $(CXXFLAGS) -o $@ $< -DUSE_PRINTF
 
 build/arith_printf.s: src/arith.cpp build
-	$(CXX) $(CXXFLAGS) $< -DUSE_PRINTF -E > $@
+	$(CXX) $(CXXFLAGS) -o $@ $< -S -DUSE_PRINTF
 
 build/arith_iostream: src/arith.cpp build
 	$(CXX) $(CXXFLAGS) -o $@ $< -DUSE_IOSTREAM
 
 build/arith_iostream.s: src/arith.cpp build
-	$(CXX) $(CXXFLAGS) $< -DUSE_IOSTREAM -E > $@
+	$(CXX) $(CXXFLAGS) -o $@ $< -S -DUSE_IOSTREAM
 
 build/arith_error: src/arith.cpp build
 	$(CXX) $(CXXFLAGS) -o $@ $< -DINDUCE_ERROR
 
 build/arith_error.s: src/arith.cpp build
-	$(CXX) $(CXXFLAGS) $< -DINDUCE_ERROR -E > $@
+	$(CXX) $(CXXFLAGS) -o $@ $< -S -DINDUCE_ERROR
 
 interactive:
 	when-changed Makefile src/*.cpp -c "clear; make run_all"
