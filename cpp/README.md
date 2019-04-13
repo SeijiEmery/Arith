@@ -14,6 +14,8 @@ The full implementation is in src/arith.cpp
     cd arith/cpp
     make
 
+This will build and run all examples (no output / printf / iostream only). Assembly output (in the form of .s files) is in build/.
+
 To see an example of what happens (at compile time) when there is an error, run
 
     make with_error
