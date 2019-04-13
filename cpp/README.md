@@ -20,6 +20,12 @@ To see an example of what happens (at compile time) when there is an error, run
 
 Or alternatively just edit the examples in main() yourself.
 
+Note: by default `make` will also build and run the haskell version, which assumes that you have GHC installed.
+
+## Haskell
+
+There is a direct translation of the c++ source to haskell in src/arith.hs, and this should produce the same exact output (with some form of printing enabled) as the c++ version (albeit with '()' instead of '<>').
+
 ## Editing:
 
 If you have [when-changed](https://github.com/joh/when-changed) installed, you can run `make interactive` (and hit enter), and it will re-run `make run_all` whenever arith.cpp or the Makefile changes.
