@@ -9,7 +9,6 @@ with_printf: build/arith_printf build/arith_printf.s
 with_iostream: build/arith_iostream build/arith_iostream.s
 with_error: build/arith_error build/arith_error.s
 with_haskell: build/arith_haskell build/arith_haskell.s
-	rm src/arith.o src/arith.hi
 
 run_no_output: no_output
 	./build/arith_no_output
@@ -54,7 +53,7 @@ build/arith_haskell: src/arith.hs build
 	ghc -o $@ $<
 
 build/arith_haskell.s: src/arith.hs build
-	ghc -o $@ $< -S
+	ghc -o $@ $< -S && rm src/arith.hi src/arith.o
 
 interactive:
 	when-changed Makefile src/*.cpp -c "clear; make run_all"

@@ -109,17 +109,19 @@ struct If {
 
     static std::ostream& repr (std::ostream& os) {
         return os << "If<",
-            ConditionLeft::repr(os) << " <-> ",
-            ConditionRight::repr(os) << " => ",
-            // os << "",
+            ConditionLeft::repr(os) << ", ",
+            ConditionRight::repr(os) << ", ",
             IfLess::repr(os) << ", ",
             IfZero::repr(os) << ", ",
             IfGreater::repr(os) << ">";
     }
     static void printf () {
         ::printf("If<");
-        ConditionLeft::printf(); ::printf(" == ");
-        ConditionRight::printf(); ::printf(" then ");
+        ConditionLeft::printf(); ::printf(", ");
+        ConditionRight::printf(); ::printf(", ");
+        IfLess::printf(); ::printf(", ");
+        IfZero::printf(); ::printf(", ");
+        IfGreater::printf(); ::printf(">");
     }
 };
 
