@@ -30,7 +30,7 @@ There is a direct translation of the c++ source to haskell in src/arith.hs, and 
 
 There is also a python version in src/arith.py, which again is a direct translation.
 
-These aren't meant as standalone implementations (as standalone implementations they're both somewhat suboptimal), but to demonstrate (and compare with) how the c++ code works.
+These aren't meant as standalone implementations (as standalone implementations they're both somewhat suboptimal), but to demonstrate (and compare) how the c++ code works by directly translating it into other languages.
 
 ## Editing:
 
