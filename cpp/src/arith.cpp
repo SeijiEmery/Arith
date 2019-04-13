@@ -132,17 +132,20 @@ int main () {
     printEval(If_2_12);
     assertEvaluatesTo(If_2_12, -1);
     printEval(If_12_12);
-    assertEvaluatesTo(If_12_12, 0);
-
     #ifdef INDUCE_ERROR
-        using B  = Add<Const<2>, Const<4>>;
-        using B_ = Add<Const<4>, Const<2>>;
+        assertEvaluatesTo(If_12_12, 1);
     #else
-        using B  = Add<Const<2>, Const<3>>;
-        using B_ = Add<Const<3>, Const<2>>;
+        assertEvaluatesTo(If_12_12, 0);
     #endif
-    assertEvaluatesTo(B,  5);
-    assertEvaluatesTo(B_, 5);
+
+    using B  = Add<Const<2>, Const<3>>;
+    using B_ = Add<Const<3>, Const<2>>;
+    #ifndef INDUCE_ERROR
+        assertEvaluatesTo(B,  5);
+        assertEvaluatesTo(B_, 5);
+    #else
+        assertEvaluatesTo(B,  22);
+    #endif
     printEval(B);
     printEval(B_);
 
@@ -155,9 +158,12 @@ int main () {
 
     using D  = Add<A, C>;
     using D_ = Add<C, A>;
-    assertEvaluatesTo(D, 67);
-    assertEvaluatesTo(D_, 67);
-    // assertEvaluatesTo(D_, 62);
+    #ifndef INDUCE_ERROR
+        assertEvaluatesTo(D, 67);
+        assertEvaluatesTo(D_, 67);
+    #else
+        assertEvaluatesTo(D_, 62);
+    #endif
     printEval(D);
     printEval(D_);
 }
